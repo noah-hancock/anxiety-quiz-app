@@ -100,6 +100,52 @@ function App() {
                 Don't worry! There's help for you. Here are some tips to deal
                 with anxiety:
               </p>
+            </>
+          )}
+          {scorePercentage < 85 && scorePercentage >= 50 && (
+            <>
+              <p>
+                <strong>There's a chance you might have anxiety. </strong> Here
+                are some tips you can use to help manage any symptoms you may
+                feel:
+              </p>
+            </>
+          )}
+          {scorePercentage < 50 && (
+            <>
+              <p>
+                <strong>You're at low risk for having anxiety.</strong> Though
+                you might not have anxiety, it's helpful for you to support
+                those who do. Here are some tips to support your friends or
+                family:
+              </p>
+              <ul>
+                <li>
+                  <strong>Educate yourself. </strong>Anxiety isn't just
+                  "worrying a lot." It's a broad term that encompasses many
+                  other symptoms and sometimes disorders. It's important to
+                  understand that everyone deals with anxiety differently, so
+                  you must be patient and understanding.
+                </li>
+                <li>
+                  <strong>Learn their triggers. </strong>People with anxiety
+                  often have triggers that set off panic attacks or certain
+                  symptoms. It's important to understand that anxiety isn't
+                  their fault, and you must learn their triggers to support them
+                  properly without overwhelming them.
+                </li>
+                <li>
+                  <strong>Listen, don't fix. </strong> Anxiety is often
+                  irrational; trying to logically explain someone's fears does
+                  not have useful outcomes. Their brain simply tells them not to
+                  trust something, and they act upon it accordingly. Listen to
+                  them, validate their feelings, and stay patient.
+                </li>
+              </ul>
+            </>
+          )}
+          {scorePercentage >= 50 && (
+            <>
               <ul>
                 <li>
                   <strong>Talk to your doctor or therapist.</strong> Sometimes,
@@ -133,16 +179,6 @@ function App() {
                   and relax.
                 </li>
               </ul>
-            </>
-          )}
-          {scorePercentage < 85 && scorePercentage >= 50 && (
-            <>
-              <h2>There's a chance you might have anxiety</h2>
-            </>
-          )}
-          {scorePercentage < 50 && (
-            <>
-              <h2>You're at low risk for having anxiety.</h2>
             </>
           )}
           <button onClick={() => setQuizLoop("menu")}>Restart Quiz</button>
