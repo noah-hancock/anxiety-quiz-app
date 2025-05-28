@@ -1,0 +1,23 @@
+body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#root {
+  max-width: 700px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.buttonContainer {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buttonContainer + p {
+text-align: center;
+}
