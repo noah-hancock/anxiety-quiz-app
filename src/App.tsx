@@ -1,5 +1,4 @@
 import { useState, useCallback } from "react";
-import "./App.css";
 
 const questions = [
   "I feel restless or on-edge.",
@@ -63,33 +62,34 @@ function App() {
   );
 
   return (
-    <>
+    <div className="max-w-prose flex flex-col w-full">
       {quizLoop == "menu" && (
         <>
           <h1>Anxiety Quiz</h1>
-          <p>Do not use this test as professional evaluation.</p>
+          <p>
+            This test is not a means of professional evaluation. If you feel
+            that you are at risk for severe anxiety, please consult your doctor.
+          </p>
           <button onClick={beginQuiz}>Begin</button>
         </>
       )}
       {quizLoop == "quiz" && (
         <>
-          <div className="buttonContainer">
-            <h2>{currentQuestion}</h2>
-            <div>
-              <button onClick={() => handleAnswer(1)}>Never</button>
-              <button onClick={() => handleAnswer(2)}>Rarely</button>
-              <button onClick={() => handleAnswer(3)}>Sometimes</button>
-              <button onClick={() => handleAnswer(4)}>Often</button>
-              <button onClick={() => handleAnswer(5)}>Always</button>
-            </div>
+          <p className="text-lg text-center">{currentQuestion}</p>
+          <div className="buttons">
+            <button onClick={() => handleAnswer(1)}>Never</button>
+            <button onClick={() => handleAnswer(2)}>Rarely</button>
+            <button onClick={() => handleAnswer(3)}>Sometimes</button>
+            <button onClick={() => handleAnswer(4)}>Often</button>
+            <button onClick={() => handleAnswer(5)}>Always</button>
           </div>
-          <p>
+          <p className="text-sm text-center mt-2">
             {currentIndex + 1}/{questions.length}
           </p>
         </>
       )}
       {quizLoop == "results" && (
-        <>
+        <div className="results-area">
           <h1>
             You scored {score}/{questions.length * 5}.
           </h1>
@@ -141,6 +141,12 @@ function App() {
                   trust something, and they act upon it accordingly. Listen to
                   them, validate their feelings, and stay patient.
                 </li>
+                <li>
+                  <strong>Recognize your limits.</strong> Remember that you're
+                  only offering your support, you are not a therapist. You
+                  cannot cure their anxiety and must promote professional help
+                  to them.
+                </li>
               </ul>
             </>
           )}
@@ -182,9 +188,9 @@ function App() {
             </>
           )}
           <button onClick={() => setQuizLoop("menu")}>Restart Quiz</button>
-        </>
+        </div>
       )}
-    </>
+    </div>
   );
 }
 
